@@ -25,9 +25,14 @@ def find_c_coordinates(point1, point2, dist):
     return tuple(c)
 
 
-def get_linear_gradient(colors, nb_points):
+def get_linear_gradient(colors, nb_colors):
+    if len(colors) < nb_colors:
+        raise Exception("Invalid number of colors")
+    if len(colors) == nb_colors:
+        return colors
+
     gradient = []
-    new_points = nb_points - len(colors)
+    new_points = nb_colors - len(colors)
 
     distances = [distance_3d(colors[i], colors[i+1]) for i in range(len(colors)-1)]
     global_distance = sum(distances)
