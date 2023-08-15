@@ -20,15 +20,16 @@ def find_c_coordinates(point1, point2, dist):
     norm_a2b = vec_a2b / np.linalg.norm(vec_a2b)
     dist_a2c = norm_a2b * dist
     c = a + dist_a2c
+    c = np.round(c).astype(int)
 
-    return c
+    return tuple(c)
 
 
 def get_linear_gradient(colors, nb_points):
     gradient = []
     new_points = nb_points - len(colors)
 
-    distances = [distance_3d(colors[i], colors[i]+1) for i in range(len(colors)-1)]
+    distances = [distance_3d(colors[i], colors[i+1]) for i in range(len(colors)-1)]
     global_distance = sum(distances)
     part_size = global_distance / (new_points+1)
 
@@ -37,17 +38,13 @@ def get_linear_gradient(colors, nb_points):
 
     for i in range(len(colors)-1):
         a = colors[i]
-        b = colors[i]+1
-
-        l = b[0] - a[0]
-        m = b[1] - a[1]
-        n = b[2] - a[2]
+        b = colors[i+1]
 
         gradient.append(a)
 
         cum_distance += distances[i]
 
-        while cum_distance >= cum_part_size:
+        while cum_distance > cum_part_size:
             dist_from_cur_point = cum_part_size - (cum_distance - distances[i])
 
             gradient.append(find_c_coordinates(a, b, dist_from_cur_point))
@@ -55,3 +52,5 @@ def get_linear_gradient(colors, nb_points):
             cum_part_size += part_size
 
     gradient.append(colors[-1])
+
+    return gradient
