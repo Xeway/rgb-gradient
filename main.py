@@ -26,7 +26,7 @@ def find_c_coordinates(point1, point2, dist):
 
 
 def get_linear_gradient(colors, nb_colors):
-    if len(colors) < nb_colors:
+    if len(colors) > nb_colors:
         raise Exception("Invalid number of colors")
     if len(colors) == nb_colors:
         return colors
