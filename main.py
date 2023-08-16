@@ -67,6 +67,6 @@ def get_linear_gradient(colors, nb_colors, return_format="rgb"):
     gradient.append(colors[-1])
 
     if return_format == "hex":
-        gradient = [f"#{color[0]:x}{color[1]:x}{color[2]:x}" for color in colors]
+        gradient = [f"#{color[0]:02x}{color[1]:02x}{color[2]:02x}" for color in gradient]
 
     return gradient
