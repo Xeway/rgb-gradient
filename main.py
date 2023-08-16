@@ -25,11 +25,19 @@ def find_c_coordinates(point1, point2, dist):
     return tuple(c)
 
 
-def get_linear_gradient(colors, nb_colors):
+def get_linear_gradient(colors, nb_colors, return_format="rgb"):
+    if return_format != "hex" and return_format != "rgb":
+        raise Exception("Invalid format chosen")
     if len(colors) > nb_colors:
         raise Exception("Invalid number of colors")
     if len(colors) == nb_colors:
         return colors
+
+    if any(isinstance(color, str) for color in colors):
+        for i, color in enumerate(colors):
+            if isinstance(color, str):
+                color = color[1:]
+                colors[i] = (int(color[:2], 16), int(color[2:4], 16), int(color[4:6], 16))
 
     gradient = []
     new_points = nb_colors - len(colors)
@@ -57,5 +65,8 @@ def get_linear_gradient(colors, nb_colors):
             cum_part_size += part_size
 
     gradient.append(colors[-1])
+
+    if return_format == "hex":
+        gradient = [f"#{color[0]:x}{color[1]:x}{color[2]:x}" for color in colors]
 
     return gradient
