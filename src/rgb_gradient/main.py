@@ -72,3 +72,6 @@ def get_linear_gradient(colors, nb_colors, return_format="rgb"):
         gradient = [f"#{color[0]:02x}{color[1]:02x}{color[2]:02x}" for color in gradient]
 
     return gradient
+
+
+print(get_linear_gradient([(255, 0, 0), (200, 100, 150), (160, 150, 80), (20, 240, 180), (0, 0, 255)], 10, "rgb"))
