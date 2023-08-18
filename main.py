@@ -28,8 +28,10 @@ def find_c_coordinates(point1, point2, dist):
 def get_linear_gradient(colors, nb_colors, return_format="rgb"):
     if return_format != "hex" and return_format != "rgb":
         raise Exception("Invalid format chosen")
-    if len(colors) > nb_colors:
-        raise Exception("Invalid number of colors")
+    if nb_colors < 3 or len(colors) > nb_colors:
+        raise Exception("Invalid number of colors wanted")
+    if len(colors) < 2:
+        raise Exception("Invalid colors (should contains at least two colors)")
     if len(colors) == nb_colors:
         return colors
 
