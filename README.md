@@ -52,3 +52,11 @@ Ok, that doesn't look like a real gradient for now. Let's call `get_linear_gradi
 ![1000 colors placed as points on a 3D plan, forming a real gradient](images/output_1000_colors.png)
 
 Yeah, this is better ;) Of course, the more you ask for colors, the better your gradient will be.
+
+## Support
+
+If you need help or found a bug, consider opening an issue on the project.
+
+## License
+
+The source code for this project is licensed under the GPLv3 license, which you can find in the [LICENSE](LICENSE) file.
