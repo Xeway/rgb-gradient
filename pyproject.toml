@@ -11,7 +11,7 @@ authors = [
 description = "Easily create gradients under the form of a list with given-input colors"
 keywords = ["rgb", "gradient", "color", "colors"]
 readme = "README.md"
-license = "GPL-3.0-only"
+license = { file="LICENSE" }
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
