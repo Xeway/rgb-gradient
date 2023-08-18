@@ -32,7 +32,7 @@ Output:
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `colors`        | A `list` containing:<br/>&emsp;• `tuples` (3 `int` elements from `0` to `255`)<br/>or/and<br/>&emsp;• `string` (representing the hexadecimal color value under the format `'#rrggbb'`<br/>&emsp;e.g. <span style="color: red;">⬤</span>red = `'#ff0000'`).<br/><br/>Requirements: `len(colors) <= nb_colors and len(colors) >= 2` |
 | `nb_colors`     | An `int` indicating how many colors will compose the gradient (including the colors already given).<br/><br/>Requirements: `nb_colors >= 3 and nb_colors >= len(colors)`                                                                                                                                                          |
-| `return_format` | A `string` to indicate in which format the colors composing the gradient are returned.<br/>It can take the value `'rgb'` (decimal format) or `'hex'` (hexadecimal format).<br/><br/>Requirements: `return_format == 'rgb' or return_format == 'hex'`                                                                              |
+| `return_format` | A `string` to indicate in which format the colors composing the gradient are returned.<br/>It can take the value `'rgb'` (decimal format) or `'hex'` (hexadecimal format).<br/><br/>Default value: `'rgb'`<br/>Requirements: `return_format == 'rgb' or return_format == 'hex'`                                                   |
 
 ## How it works
 
