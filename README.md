@@ -26,7 +26,15 @@ Output:
 ['#ff0000', '#dc4161', '#c86496', '#b1816e', '#a09650', '#65bc7a', '#14f0b4', '#13e7b7', '#0a74db', '#0000ff']
 ```
 
-### How it works
+## Specification
+
+| Parameters      | Type/Format                                                                                                                                                                                                                                                                                                                       |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `colors`        | A `list` containing:<br/>&emsp;• `tuples` (3 `int` elements from `0` to `255`)<br/>or/and<br/>&emsp;• `string` (representing the hexadecimal color value under the format `'#rrggbb'`<br/>&emsp;e.g. <span style="color: red;">⬤</span>red = `'#ff0000'`).<br/><br/>Requirements: `len(colors) <= nb_colors and len(colors) >= 2` |
+| `nb_colors`     | An `int` indicating how many colors will compose the gradient (including the colors already given).<br/><br/>Requirements: `nb_colors >= 3 and nb_colors >= len(colors)`                                                                                                                                                          |
+| `return_format` | A `string` to indicate in which format the colors composing the gradient are returned.<br/>It can take the value `'rgb'` (decimal format) or `'hex'` (hexadecimal format).<br/><br/>Requirements: `return_format == 'rgb' or return_format == 'hex'`                                                                              |
+
+## How it works
 
 The RGB color model is composed of 3 values (red, green, blue) from 0 to 255. With that in mind, we can easily represent a color as a point on a 3D plan.\
 With the input of the previous example, it looks like that:
